@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.HashSet;
-import java.util.Set;
-public class Main{
+public class FirstCommonLetter{
     public static void main(String[] args){
       char array1[] = {'a','b','c'};
       char array2[] = {'a','e','c'};
