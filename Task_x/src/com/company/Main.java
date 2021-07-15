@@ -4,25 +4,23 @@ import java.util.HashSet;
 import java.util.Set;
 public class Main{
     public static void main(String[] args){
-        //System.out.println(UniqueStringUsingBitVector.isUnique("helo"));
-        Main.isUnique("abcdef","abcxyz");
+      char array1[] = {'a','b','c'};
+      char array2[] = {'a','e','c'};
+
+        FirstCommonLetter.checkFirstCommonLetter(array1,array2);
     }
 
-    public static void isUnique(String str1,String str2){
+    public static void checkFirstCommonLetter(char[] str1,char[] str2){
         int checker=0;
-        for(int i=0;i<str1.length();i++){
-            int charBitVector1= 1 << (str1.charAt(i)-'a');
-            if((checker & charBitVector1)>0){
-                continue;
-            }
-            checker|=charBitVector1;
+        for(char ch : str1){
+            checker|=1 << (ch-'a');
         }
-        for(int i=0;i<str2.length();i++){
-            int charBitVector2=1 <<(str2.charAt(i)-'a');
-            if((checker & charBitVector2)>0){
-                System.out.println(str2.charAt(i));
+        for(char ch: str2){
+            if((checker & 1 <<(ch-'a'))>0){
+                System.out.println("First Common Letter is "+ ch);
+                return;
             }
-            checker|=charBitVector2;
+            checker|=1 <<(ch-'a');
         }
     }
 }
